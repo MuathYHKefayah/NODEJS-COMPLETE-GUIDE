@@ -2,44 +2,88 @@ const Product = require('../models/product')
 const Cart = require('../models/cart')
 
 exports.getProducts = (req, res, next) => {
-    Product.fetchAll((products) => {
+    // Product.fetchAll((products) => {
+    //     res.render('shop/product-list', { // shop : the name of pug/handlebars/ejs file
+    //         prods: products,
+    //         pageTitle: 'All Products',
+    //         path: '/products'
+    //     })
+    // });
+    
+    Product.fetchAll_SQL_BD()
+    .then(([rows, fieldData]) => {
         res.render('shop/product-list', { // shop : the name of pug/handlebars/ejs file
-            prods: products,
+            prods: rows,
             pageTitle: 'All Products',
             path: '/products'
         })
-    });
+    })
+    .catch(err =>  console.log(err))
 }
 
 exports.getProduct = (req, res,next) => {
     const prodId = req.params.productId;
-    Product.findById(prodId, product => {
-        res.render('shop/product-detail', {
-            product: product,
-            pageTitle: product.title,
-            path: '/products'
-        })
-    })
+    // Product.findById(prodId, product => {
+    //     res.render('shop/product-detail', {
+    //         product: product,
+    //         pageTitle: product.title,
+    //         path: '/products'
+    //     })
+    // })
    
+    Product.findById_SQL_DB(prodId)
+        .then(([product]) => {
+            res.render('shop/product-detail', {
+                product: product[0],
+                pageTitle: product[0].title,
+                path: '/products'
+            })
+        })
+        .catch(err => console.log(err))
 }
 
 
 exports.getIndex = (req, res,next) => {
-    Product.fetchAll((products) => {
-        res.render('shop/index', { // shop : the name of pug/handlebars/ejs file
-            prods: products,
-            pageTitle: 'Shop',
-            path: '/'
+    // Product.fetchAll((products) => {
+    //     res.render('shop/index', { // shop : the name of pug/handlebars/ejs file
+    //         prods: products,
+    //         pageTitle: 'Shop',
+    //         path: '/'
+    //     })
+    // });
+    Product.fetchAll_SQL_BD()
+        .then(([rows, fieldData]) => {
+                res.render('shop/index', { // shop : the name of pug/handlebars/ejs file
+                prods: rows,
+                pageTitle: 'Shop',
+                path: '/'
+             })
         })
-    });
+        .catch(err =>  console.log(err))
 }
 
 
 exports.getCart = (req, res,next) => {
     Cart.getCart(cart => {
-        Product.fetchAll(products => {
+        // Product.fetchAll(products => {
+        //     const cartProducts = [];
+        //     for (let product of products){
+        //         const cartProductData = cart.products.find(prod => prod.id === product.id)
+        //         if(cartProductData){
+        //             cartProducts.push({productData: product, qty: cartProductData.qty})
+        //         }
+        //     }
+        //     res.render('shop/cart', {
+        //         path: '/cart',
+        //         pageTitle: 'Your Cart',
+        //         products: cartProducts
+        //     })
+        // })
+
+        Product.fetchAll_SQL_BD()
+        .then(([rows, fieldData]) => {
             const cartProducts = [];
-            for (let product of products){
+            for (let product of rows){
                 const cartProductData = cart.products.find(prod => prod.id === product.id)
                 if(cartProductData){
                     cartProducts.push({productData: product, qty: cartProductData.qty})
@@ -51,6 +95,8 @@ exports.getCart = (req, res,next) => {
                 products: cartProducts
             })
         })
+        .catch(err =>  console.log(err))
+        
     })
    
 }

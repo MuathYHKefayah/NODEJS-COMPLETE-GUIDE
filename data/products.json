@@ -1,1 +1,44 @@
-[{"id":"1234","title":" Into the Sky","imageUrl":" https://designforwriters.com/wp-content/uploads/2017/10/design-for-writers-book-cover-ec-5stones-into-the-sky.jpg","price":"26","description":" This is an awesome book!"},{"id":"2341","title":"Looking for LA LA","imageUrl":"https://designforwriters.com/wp-content/uploads/2017/10/design-for-writers-book-cover-ec-1-looking-for-lala.jpg","price":"20","description":"Great Book!"},{"id":"4123","title":"The Father's House","imageUrl":"https://designforwriters.com/wp-content/uploads/2017/10/design-for-writers-book-cover-pp-mrh-4-thy-fathers-house.jpg","price":"25","description":"Awesome Book!"},{"id":"5432","title":"  Aurora North","imageUrl":"  https://designforwriters.com/wp-content/uploads/2017/10/design-for-writers-book-cover-jsr-an3-aurora-north-and-the-wicked-witches.jpg","price":"278","description":"  Fantastic Book!"},{"id":"3412","title":"A Million To One ","imageUrl":"https://designforwriters.com/wp-content/uploads/2017/10/design-for-writers-book-cover-tf-2-a-million-to-one.jpg","price":"45","description":"rich Book!"},{"title":"the testing","imageUrl":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSr__Y2tSRC8E1HXox27faX8VPdu9JBPT5meGyG4e0f5SMMedCWkSInpyCPRuB2cdP1M0k&usqp=CAU","price":"20.00","description":"Testing","id":"0.14494977497517625"}]
+[
+    {
+        "id": "1234",
+        "title": " Into the Sky",
+        "imageUrl": " https://designforwriters.com/wp-content/uploads/2017/10/design-for-writers-book-cover-ec-5stones-into-the-sky.jpg",
+        "price": "26",
+        "description": " This is an awesome book!"
+    },
+    {
+        "id": "2341",
+        "title": "Looking for LA LA",
+        "imageUrl": "https://designforwriters.com/wp-content/uploads/2017/10/design-for-writers-book-cover-ec-1-looking-for-lala.jpg",
+        "price": "20",
+        "description": "Great Book!"
+    },
+    {
+        "id": "4123",
+        "title": "The Father's House",
+        "imageUrl": "https://designforwriters.com/wp-content/uploads/2017/10/design-for-writers-book-cover-pp-mrh-4-thy-fathers-house.jpg",
+        "price": "25",
+        "description": "Awesome Book!"
+    },
+    {
+        "id": "5432",
+        "title": "  Aurora North",
+        "imageUrl": "  https://designforwriters.com/wp-content/uploads/2017/10/design-for-writers-book-cover-jsr-an3-aurora-north-and-the-wicked-witches.jpg",
+        "price": "278",
+        "description": "  Fantastic Book!"
+    },
+    {
+        "id": "3412",
+        "title": "A Million To One ",
+        "imageUrl": "https://designforwriters.com/wp-content/uploads/2017/10/design-for-writers-book-cover-tf-2-a-million-to-one.jpg",
+        "price": "45",
+        "description": "rich Book!"
+    },
+    {
+        "title": "the testing",
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSr__Y2tSRC8E1HXox27faX8VPdu9JBPT5meGyG4e0f5SMMedCWkSInpyCPRuB2cdP1M0k&usqp=CAU",
+        "price": "20.00",
+        "description": "Testing",
+        "id": "0.14494977497517625"
+    }
+]

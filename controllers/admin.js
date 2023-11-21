@@ -16,8 +16,13 @@ exports.postAddPRoduct = (req, res, next) => {
     const description = req.body.description;
 
     const product = new Product(null, title, imageUrl, price, description);
-    product.save();
-    res.redirect('/');
+    //product.save();
+    product.save_SQL_BD()
+        .then(() => {
+            res.redirect('/');
+        })
+        .catch(err => console.log(err))
+   
 }
 
 exports.getEditProduct = (req, res, next) => {
@@ -60,6 +65,16 @@ exports.getProducts = (req, res, next) => {
             path: '/admin/products'
         })
     });
+
+    Product.fetchAll_SQL_BD()
+    .then(([rows, fieldData]) => {
+        res.render('admin/products', { // products : the name of pug/handlebars/ejs file
+            prods: rows,
+            pageTitle: 'Admin Products',
+            path: '/admin/products'
+        })
+    })
+    .catch(err =>  console.log(err))
 }
 
 exports.postDeleteProduct = (req, res, next) => {

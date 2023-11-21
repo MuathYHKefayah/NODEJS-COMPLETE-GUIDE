@@ -1,5 +1,5 @@
 const products = [];
-
+const db = require('../util/database');
 const fs  = require('fs');
 const path = require('path');
 const rootDir = require('../util/path');
@@ -52,6 +52,13 @@ module.exports = class Product {
        });
     }
 
+    save_SQL_BD(){
+        return db.execute(
+            'INSERT INTO products (title, price, imageUrl, description) VALUES (?, ?, ?, ?)', 
+            [this.title, this.price, this.imageUrl, this.description]
+        );
+    }
+
     static deleteById(id){
         getProductsFromFile(products => {
             const product = products.find(prod => prod.id === id)
@@ -64,14 +71,27 @@ module.exports = class Product {
         })
     }
 
+    static deleteById_SQL_BD(){
+
+    }
+
     static fetchAll(callback){ // we set static to make sure this method called directly by the Product class because its a method for all products not for the product object
         getProductsFromFile(callback);
     }
+    
+    static fetchAll_SQL_BD(callback){ // we set static to make sure this method called directly by the Product class because its a method for all products not for the product object
+        return db.execute('SELECT * FROM products')
+    }
+
 
     static findById(id, callback){
         getProductsFromFile(products => {
             const product = products.find(p => p.id === id)
             callback(product)
         })
+    }
+
+    static findById_SQL_DB(id){
+       return db.execute('SELECT * FROM products WHERE products.id = ?', [id])
     }
 }
